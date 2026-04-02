@@ -1,0 +1,237 @@
+/* ===============================
+   🎯 CONTAINER
+================================ */
+.quiz-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===============================
+   🧠 QUIZ CARD
+================================ */
+.quiz-card {
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border: 1px solid #1f2937;
+  padding: 25px;
+  border-radius: 16px;
+  color: #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+.quiz-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+.quiz-card p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* ===============================
+   📊 PROGRESS BAR
+================================ */
+.quiz-progress {
+  height: 6px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #22c55e);
+  transition: width 0.3s ease;
+}
+
+/* ===============================
+   🎯 OPTIONS
+================================ */
+.options {
+  margin-top: 15px;
+}
+
+.option {
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* Hover */
+.option:hover {
+  background: #273449;
+  transform: scale(1.01);
+}
+
+/* Selected */
+.option.selected {
+  border: 2px solid #4f46e5;
+  background: #1e40af33;
+}
+
+/* Correct */
+.option.correct {
+  background: #16a34a;
+  border: 2px solid #22c55e;
+  color: white;
+}
+
+/* Wrong */
+.option.wrong {
+  background: #dc2626;
+  border: 2px solid #ef4444;
+  color: white;
+}
+
+/* Disable clicks after submit */
+.option.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ===============================
+   🔘 NAV BUTTONS
+================================ */
+.quiz-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.quiz-nav button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-nav button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+.quiz-nav button:disabled {
+  background: #475569;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===============================
+   🏆 RESULT PANEL
+================================ */
+.quiz-result {
+  margin-top: 25px;
+  background: linear-gradient(145deg, #020617, #0f172a);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  animation: fadeIn 0.4s ease;
+}
+
+.quiz-result h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #22c55e;
+}
+
+/* ===============================
+   📘 EXPLANATIONS
+================================ */
+.explanations {
+  margin-top: 15px;
+}
+
+.exp-card {
+  margin-top: 12px;
+  padding: 12px;
+  background: #1e293b;
+  border-left: 4px solid #4f46e5;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.exp-card:hover {
+  background: #273449;
+}
+
+/* ===============================
+   ✨ LOADING
+================================ */
+.quiz-loading {
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px;
+}
+
+/* ===============================
+   🎬 ANIMATION
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   📱 MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 10px;
+  }
+
+  .quiz-card {
+    padding: 15px;
+  }
+
+  .option {
+    font-size: 14px;
+  }
+
+  .quiz-nav {
+    flex-direction: column;
+  }
+}
+
+/* ===============================
+   🤖 AI FEEDBACK
+================================ */
+.ai-feedback {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #020617, #0f172a);
+  border: 1px solid #1e293b;
+  color: #e2e8f0;
+  animation: fadeIn 0.4s ease;
+}
+
+.ai-feedback h3 {
+  margin-bottom: 10px;
+  color: #22c55e;
+}
