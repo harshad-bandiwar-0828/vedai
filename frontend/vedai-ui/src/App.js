@@ -99,7 +99,7 @@ useEffect(() => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/chat", {
+    const res = await fetch("https://vedai-backend-78tx.onrender.com/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -143,7 +143,7 @@ useEffect(() => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/ask", {
+    const res = await fetch("https://vedai-backend-78tx.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -176,7 +176,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/summarize", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input })
@@ -200,7 +200,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/mindmap", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/mindmap", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input })
@@ -221,7 +221,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/pdf-summary");
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/pdf-summary");
       const data = await res.json();
       typeMessage(data.summary);
     } catch {
@@ -236,7 +236,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/pdf-mindmap");
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/pdf-mindmap");
       const data = await res.json();
       typeMessage(data.mindmap, "mindmap");
     } catch {
@@ -251,7 +251,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/quiz", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/quiz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ num_questions: 5 })
@@ -274,7 +274,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/quiz-topic", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/quiz-topic", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ topic: input })
@@ -301,7 +301,7 @@ useEffect(() => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/upload", {
         method: "POST",
         body: formData
       });
@@ -328,7 +328,7 @@ useEffect(() => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/tutor", {
+    const res = await fetch("https://vedai-backend-78tx.onrender.com/tutor", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -360,7 +360,7 @@ const getStudyMaterial = async () => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/study-material", {
+    const res = await fetch("https://vedai-backend-78tx.onrender.com/study-material", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

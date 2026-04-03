@@ -96,7 +96,7 @@ function Quiz({ text }) {
     setLoadingFeedback(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/quiz-feedback", {
+      const res = await fetch("https://vedai-backend-78tx.onrender.com/quiz-feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
