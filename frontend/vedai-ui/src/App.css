@@ -305,3 +305,22 @@ body::before {
 body::before {
   pointer-events: none;
 }
+
+/* RESET EVERYTHING */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FULL WIDTH FIX */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* 🔥 remove right scrollbar */
+}
+
+/* REMOVE DEFAULT CENTERING */
+body {
+  display: block; /* ❗ remove flex if exists */
+}

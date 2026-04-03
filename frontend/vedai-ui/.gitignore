@@ -1,37 +1,24 @@
-# dependencies
-node_modules/
-.pnp/
-.pnp.js
-
-# environment variables (VERY IMPORTANT)
-.env
-.env.*
-backend/.env
-
-# logs
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# build files
-dist/
-build/
-coverage/
+node_modules
+dist
+dist-ssr
+*.local
 
-# OS files
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-
-# uploads / user files
-uploads/
-
-# large files
-*.pdf
-*.mp4
-
-# Python cache (since you use AI agents)
-__pycache__/
-*.pyc
-
-# VS Code
-.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
