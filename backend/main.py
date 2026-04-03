@@ -59,18 +59,28 @@ class ChatRequest(BaseModel):
     messages: list
 
 # ===============================
-# 🧠 DB
+# 🧠 DB (FIXED - LAZY LOAD)
 # ===============================
-client = chromadb.PersistentClient(path="D:/vedai/chroma_db")
+client = chromadb.PersistentClient(path="./chroma_db")
 
-embedding_function = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="all-MiniLM-L6-v2"
-)
+collection = None
 
-collection = client.get_or_create_collection(
-    name="vedai_notes",
-    embedding_function=embedding_function
-)
+def get_collection():
+    global collection
+
+    if collection is None:
+        from chromadb.utils import embedding_functions
+
+        embedding_function = embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name="all-MiniLM-L6-v2"
+        )
+
+        collection = client.get_or_create_collection(
+            name="vedai_notes",
+            embedding_function=embedding_function
+        )
+
+    return collection
 
 # ===============================
 # 🏠 HOME
@@ -103,7 +113,8 @@ def ask(req: QueryRequest):
     if not active_file:
         return {"answer": "❌ No PDF selected"}
 
-    results = collection.query(
+    col = get_collection()
+    results = col.query(
         query_texts=[req.query],
         n_results=3,
         where={"file": active_file}
@@ -183,7 +194,8 @@ def pdf_summary():
     if not active_file:
         return {"summary": "❌ No PDF selected"}
 
-    results = collection.query(
+    col = get_collection()
+    results = col.query(
         query_texts=["summary"],
         n_results=10,
         where={"file": active_file}
@@ -215,8 +227,9 @@ def pdf_mindmap():
 
     if not active_file:
         return {"mindmap": "❌ No PDF selected"}
-
-    results = collection.query(
+    
+    col = get_collection()
+    results = col.query(
         query_texts=["main topics"],
         n_results=10,
         where={"file": active_file}
@@ -257,7 +270,8 @@ def quiz(req: QuizRequest):
     if not active_file:
         return {"quiz": "❌ No PDF selected"}
 
-    results = collection.query(
+    col = get_collection()
+    results = col.query(
         query_texts=["important concepts"],
         n_results=15,
         where={"file": active_file}
@@ -421,7 +435,8 @@ async def upload(file: UploadFile = File(...)):
         ]
 
         for i, chunk in enumerate(chunks):
-            collection.add(
+            col = get_collection()
+            col.add(
                 ids=[f"{file.filename}_{i}"],
                 documents=[chunk],
                 metadatas=[{"file": file.filename}]
