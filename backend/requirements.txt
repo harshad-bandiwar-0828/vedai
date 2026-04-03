@@ -5,3 +5,4 @@ groq
 chromadb
 PyMuPDF
 sentence-transformers
+python-multipart
